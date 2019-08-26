@@ -102,5 +102,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\S3.Northwind.DataAccess\S3.Northwind.DataAccess.csproj">
+      <Project>{fa10968b-588b-4272-ba90-744dc45ea615}</Project>
+      <Name>S3.Northwind.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\S3.Northwind.Entities\S3.Northwind.Entities.csproj">
+      <Project>{1a3cbf01-e376-4662-91d9-f12a032ecce9}</Project>
+      <Name>S3.Northwind.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
