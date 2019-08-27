@@ -16,27 +16,21 @@ using System.Windows.Shapes;
 namespace S3.Northwind.Gui.Desktop
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for StackedButtonNavigationUserControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class StackedButtonNavigationUserControl : UserControl
     {
-        public MainWindow()
+        MainWindow mainWindow;
+
+        public StackedButtonNavigationUserControl(MainWindow mainWindow)
         {
             InitializeComponent();
-            masterUserControl.Content = new StackedButtonNavigationUserControl(this);
-        }
-        
-        public UserControl DetailsUserControl
-        {
-            get => detailUserControl;
-            set
-            {
-                if (value != null)
-                {
-                    detailUserControl = value;
-                }
-            }
+            this.mainWindow = mainWindow;
         }
 
+        private void ToggleButton_Checked(object sender, RoutedEventArgs e)
+        {
+            mainWindow.DetailsUserControl.Content = new HrUserControl();
+        }
     }
 }
