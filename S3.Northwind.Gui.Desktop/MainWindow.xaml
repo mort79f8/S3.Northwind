@@ -12,8 +12,8 @@
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top">
-                <MenuItem Header="Filer"/>
-                <MenuItem Header="Om"/>
+                <MenuItem Header="_Filer"/>
+                <MenuItem Header="_Om"/>
             </Menu>
             <StatusBar DockPanel.Dock="Bottom">
                 <TextBlock Text="Klar"/>

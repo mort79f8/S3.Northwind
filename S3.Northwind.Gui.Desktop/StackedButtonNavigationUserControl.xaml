@@ -8,12 +8,12 @@
              d:DesignHeight="450" d:DesignWidth="200">
     <Grid>
         <StackPanel>
-            <ToggleButton Content="HR" Height="40" Checked="ToggleButton_Checked"/>
-            <ToggleButton Content="Order" Height="40"/>
-            <ToggleButton Content="Produkter" Height="40"/>
-            <ToggleButton Content="Regnskab" Height="40"/>
-            <ToggleButton Content="Kunder" Height="40"/>
-            <ToggleButton Content="Levarandører" Height="40"/>
+            <ToggleButton Content="_HR" Height="40" Checked="ToggleButton_Checked"/>
+            <ToggleButton Content="Or_der" Height="40"/>
+            <ToggleButton Content="_Produkter" Height="40"/>
+            <ToggleButton Content="_Regnskab" Height="40"/>
+            <ToggleButton Content="_Kunder" Height="40"/>
+            <ToggleButton Content="_Levarandører" Height="40"/>
         </StackPanel>
     </Grid>
 </UserControl>

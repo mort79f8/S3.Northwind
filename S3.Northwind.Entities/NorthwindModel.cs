@@ -22,6 +22,7 @@ namespace S3.Northwind.Entities
         public virtual DbSet<Region> Regions { get; set; }
         public virtual DbSet<Shipper> Shippers { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Territory> Territories { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -37,6 +38,10 @@ namespace S3.Northwind.Entities
 
             modelBuilder.Entity<Customer>()
                 .Property(e => e.CustomerID)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Employee>()
+                .Property(e => e.Initials)
                 .IsFixedLength();
 
             modelBuilder.Entity<Employee>()

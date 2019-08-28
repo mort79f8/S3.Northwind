@@ -122,7 +122,7 @@
       <Name>S3.Northwind.DataAccess</Name>
     </ProjectReference>
     <ProjectReference Include="..\S3.Northwind.Entities\S3.Northwind.Entities.csproj">
-      <Project>{1a3cbf01-e376-4662-91d9-f12a032ecce9}</Project>
+      <Project>{4589404B-5D5C-4314-9A63-8573209A97C9}</Project>
       <Name>S3.Northwind.Entities</Name>
     </ProjectReference>
   </ItemGroup>

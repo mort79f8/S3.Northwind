@@ -3,17 +3,8 @@ using S3.Northwind.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace S3.Northwind.Gui.Desktop
 {
@@ -24,11 +15,17 @@ namespace S3.Northwind.Gui.Desktop
     {
 
         private Employee selectedEmployee;
+        private List<Employee> employees;
 
         public HrUserControl()
         {
             InitializeComponent();
-            DisplayAllEmployees();
+            DisplayAllEmployees();            
+            buttonUpdate.IsEnabled = false;
+
+            Repository repository = new Repository();
+            employees = repository.GetAllEmployees();
+
         }
 
         public void DisplayAllEmployees()
@@ -45,29 +42,32 @@ namespace S3.Northwind.Gui.Desktop
             selectedEmployee.LastName = textBoxLastName.Text;
             selectedEmployee.Title = textBoxJob.Text;
             selectedEmployee.TitleOfCourtesy = textBoxTitle.Text;
-            selectedEmployee.BirthDate = DateTime.Parse(textBoxBirthday.Text);
-            selectedEmployee.HireDate = DateTime.Parse(textBoxHireDate.Text);
+            selectedEmployee.BirthDate = DateTime.Parse(datePickerBirthday.Text);
+            selectedEmployee.HireDate = DateTime.Parse(datePickerHireDate.Text);
             selectedEmployee.Address = textBoxAddress.Text;
             selectedEmployee.City = textBoxCity.Text;
             selectedEmployee.PostalCode = textBoxPostalCode.Text;
             selectedEmployee.Region = textBoxRegion.Text;
             selectedEmployee.Country = textBoxCountry.Text;
             selectedEmployee.HomePhone = textBoxHomePhone.Text;
-            // Extension most not be more than 4 char. long.
             selectedEmployee.Extension = textBoxExtension.Text;
             selectedEmployee.Notes = textBoxNotes.Text;
            
             Repository repository = new Repository();
             repository.Update(selectedEmployee);
+
+
             DisplayAllEmployees();
+
+
 
             // clearing the textbox'
             textBoxFirstName.Text = "";
             textBoxLastName.Text = "";
             textBoxJob.Text = "";
             textBoxTitle.Text = "";
-            textBoxBirthday.Text = "";
-            textBoxHireDate.Text = "";
+            datePickerBirthday.Text = "";
+            datePickerHireDate.Text = "";
             textBoxAddress.Text = "";
             textBoxCity.Text = "";
             textBoxPostalCode.Text = "";
@@ -76,6 +76,14 @@ namespace S3.Northwind.Gui.Desktop
             textBoxHomePhone.Text = "";
             textBoxExtension.Text = "";
             textBoxNotes.Text = "";
+            textBoxReportTo.Text = "";
+
+            //clearing searchfields
+            textBoxName.Text = "";
+            textBoxInitials.Text = "";
+            comboBoxCountry.Text = "";
+
+            buttonUpdate.IsEnabled = false;
         }
 
         private void EmployeeDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -87,8 +95,8 @@ namespace S3.Northwind.Gui.Desktop
                 textBoxLastName.Text = selectedEmployee.LastName;
                 textBoxJob.Text = selectedEmployee.Title;
                 textBoxTitle.Text = selectedEmployee.TitleOfCourtesy;
-                textBoxBirthday.Text = selectedEmployee.BirthDate.ToString();
-                textBoxHireDate.Text = selectedEmployee.HireDate.ToString();
+                datePickerBirthday.Text = selectedEmployee.BirthDate.ToString();
+                datePickerHireDate.Text = selectedEmployee.HireDate.ToString();
                 textBoxAddress.Text = selectedEmployee.Address;
                 textBoxCity.Text = selectedEmployee.City;
                 textBoxPostalCode.Text = selectedEmployee.PostalCode;
@@ -97,37 +105,24 @@ namespace S3.Northwind.Gui.Desktop
                 textBoxHomePhone.Text = selectedEmployee.HomePhone;
                 textBoxExtension.Text = selectedEmployee.Extension;
                 textBoxNotes.Text = selectedEmployee.Notes;
+                textBoxReportTo.Text = selectedEmployee.ReportsTo.ToString();
             }
+            buttonUpdate.IsEnabled = true;
         }
 
         private void textBoxInitials_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Repository repository = new Repository();
-            List<Employee> employees = repository.GetAllEmployees();
-            List<Employee> initialMatch = new List<Employee>();
-            if (textBoxInitials.GetLineLength(0) == 4)
-            {
-                foreach (var employee in employees)
-                {
-                    if (textBoxInitials.Text.ToLower() == Employee.Initials(employee).ToLower())
-                    {
-                        initialMatch.Add(employee);
-                    }
-                }
-                employeeDataGrid.ItemsSource = initialMatch;
-            }
-
-            if (textBoxInitials.GetLineLength(0) <= 3)
-            {
-                DisplayAllEmployees();
-            }
+            employeeDataGrid.ItemsSource = employees.Where(em => em.Initials.ToLower().Contains(textBoxInitials.Text.ToLower()));
         }
 
         private void textBoxName_TextChanged(object sender, TextChangedEventArgs e)
         {
-            Repository repository = new Repository();
-            List<Employee> employees = repository.GetAllEmployees();
+            employeeDataGrid.ItemsSource = employees.Where(em => (em.FirstName + " " + em.LastName).ToLower().Contains(textBoxName.Text.ToLower()));
+        }
 
+        private void ComboBoxCountry_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            employeeDataGrid.ItemsSource = employees.Where(em => em.Country.Trim() == comboBoxCountry.Text);
         }
     }
 }
