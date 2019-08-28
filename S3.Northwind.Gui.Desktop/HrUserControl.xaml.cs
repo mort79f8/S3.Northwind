@@ -54,6 +54,20 @@ namespace S3.Northwind.Gui.Desktop
         {
             selectedEmployee = employeeDataGrid.SelectedItem as Employee;
             textBoxFirstName.Text = selectedEmployee.FirstName;
+            textBoxLastName.Text = selectedEmployee.LastName;
+            textBoxJob.Text = selectedEmployee.Title;
+            textBoxTitle.Text = selectedEmployee.TitleOfCourtesy;
+            textBoxBirthday.Text = selectedEmployee.BirthDate.ToString();
+            textBoxHireDate.Text = selectedEmployee.HireDate.ToString();
+            textBoxAddress.Text = selectedEmployee.Address;
+            textBoxCity.Text = selectedEmployee.City;
+            textBoxPostalCode.Text = selectedEmployee.PostalCode;
+            textBoxRegion.Text = selectedEmployee.Region;
+            textBoxCountry.Text = selectedEmployee.Country;
+            textBoxHomePhone.Text = selectedEmployee.HomePhone;
+            textBoxExtension.Text = selectedEmployee.Extension;
+            textBoxNotes.Text = selectedEmployee.Notes;
+
             // TODO lav resten af relevante props på employee.
         }
     }

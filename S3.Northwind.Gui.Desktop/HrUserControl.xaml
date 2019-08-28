@@ -56,7 +56,7 @@
                 <RowDefinition Height="50"/>
                 
                 <RowDefinition Height="50"/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="150"/>
                 <RowDefinition Height="50"/>
                 
             </Grid.RowDefinitions>
@@ -77,23 +77,24 @@
         <Label Grid.Column="0" Grid.Row="12" x:Name="labelExtension" Content="Extension" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
         <Label Grid.Column="0" Grid.Row="13" x:Name="labelNotes" Content="Noter" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
                 
-        <TextBox Grid.Column="1" Grid.Row="0" x:Name="textBoxFirstName" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
-        <TextBox Grid.Column="1" Grid.Row="1" x:Name="textBoxLastName" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
-        <TextBox Grid.Column="1" Grid.Row="2" x:Name="textBoxJob" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
-        <TextBox Grid.Column="1" Grid.Row="3" x:Name="textBoxTitle" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
-        <TextBox Grid.Column="1" Grid.Row="4" x:Name="textBoxBirthday" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
-        <TextBox Grid.Column="1" Grid.Row="5" x:Name="textBoxHireDate" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
-        <TextBox Grid.Column="1" Grid.Row="6" x:Name="textBoxAddress" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
-        <TextBox Grid.Column="1" Grid.Row="7" x:Name="textBoxCity" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
-        <TextBox Grid.Column="1" Grid.Row="8" x:Name="textBoxPostalCode" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
-        <TextBox Grid.Column="1" Grid.Row="9" x:Name="textBoxRegion" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
-        <TextBox Grid.Column="1" Grid.Row="10" x:Name="textBoxCountry" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
-        <TextBox Grid.Column="1" Grid.Row="11" x:Name="textBoxHomePhone" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
-        <TextBox Grid.Column="1" Grid.Row="12" x:Name="textBoxExtension" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
-        <TextBox Grid.Column="1" Grid.Row="13" x:Name="textBoxNotes" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+        <TextBox Grid.Column="1" Grid.Row="0" x:Name="textBoxFirstName" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
+        <TextBox Grid.Column="1" Grid.Row="1" x:Name="textBoxLastName" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
+        <TextBox Grid.Column="1" Grid.Row="2" x:Name="textBoxJob" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
+        <TextBox Grid.Column="1" Grid.Row="3" x:Name="textBoxTitle" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
+        <TextBox Grid.Column="1" Grid.Row="4" x:Name="textBoxBirthday" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
+        <TextBox Grid.Column="1" Grid.Row="5" x:Name="textBoxHireDate" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
+        <TextBox Grid.Column="1" Grid.Row="6" x:Name="textBoxAddress" HorizontalAlignment="Left" Height="40"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
+        <TextBox Grid.Column="1" Grid.Row="7" x:Name="textBoxCity" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
+        <TextBox Grid.Column="1" Grid.Row="8" x:Name="textBoxPostalCode" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
+        <TextBox Grid.Column="1" Grid.Row="9" x:Name="textBoxRegion" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
+        <TextBox Grid.Column="1" Grid.Row="10" x:Name="textBoxCountry" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
+        <TextBox Grid.Column="1" Grid.Row="11" x:Name="textBoxHomePhone" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
+        <TextBox Grid.Column="1" Grid.Row="12" x:Name="textBoxExtension" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
+        <TextBox Grid.Column="1" Grid.Row="13" x:Name="textBoxNotes" HorizontalAlignment="Left" Height="120"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
             
             
         <Button Grid.Column="1" Grid.Row="14" x:Name="buttonUpdate" Content="Updater" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="ButtonUpdate_Click"/>
         </Grid>
+        
     </Grid>
 </UserControl>
