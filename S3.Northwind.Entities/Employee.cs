@@ -78,5 +78,12 @@ namespace S3.Northwind.Entities
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Territory> Territories { get; set; }
+
+        public static string Initials(Employee employee)
+        {
+            string initials = employee.FirstName.Substring(0, 2);
+            initials += employee.LastName.Substring(0, 2);
+            return initials;
+        }
     }
 }
