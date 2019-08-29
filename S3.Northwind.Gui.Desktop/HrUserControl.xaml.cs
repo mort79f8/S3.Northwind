@@ -3,8 +3,10 @@ using S3.Northwind.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace S3.Northwind.Gui.Desktop
 {
@@ -22,10 +24,11 @@ namespace S3.Northwind.Gui.Desktop
             InitializeComponent();
             DisplayAllEmployees();            
             buttonUpdate.IsEnabled = false;
+            
 
             Repository repository = new Repository();
             employees = repository.GetAllEmployees();
-
+            FillCountryComboBox();
         }
 
         public void DisplayAllEmployees()
@@ -35,6 +38,35 @@ namespace S3.Northwind.Gui.Desktop
             employeeDataGrid.ItemsSource = employees;
         }
 
+        private void FillCountryComboBox()
+        {
+            List<string> countries = GetuniqueListOfCountries();
+            foreach (var country in countries)
+            {
+                comboBoxCountry.Items.Add(country);
+            }
+        }
+
+        private List<string> GetuniqueListOfCountries()
+        {
+            List<string> countriesWithDoubles = new List<string>();
+            foreach (var employee in employees)
+            {
+                countriesWithDoubles.Add(employee.Country);
+            }
+
+            List<string> uniqueCountries = countriesWithDoubles.Distinct().ToList();
+
+            return uniqueCountries;
+        }
+
+        // methods for making sure only numbers are typed into any textbox which uses the method.
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+        
         private void ButtonUpdate_Click(object sender, RoutedEventArgs e)
         {
 

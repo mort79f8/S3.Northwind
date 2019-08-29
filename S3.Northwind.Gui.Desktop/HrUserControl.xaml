@@ -6,39 +6,40 @@
              xmlns:local="clr-namespace:S3.Northwind.Gui.Desktop"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        
+    <Grid Background="LightBlue">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>       
-        <DataGrid Grid.Column="0" x:Name="employeeDataGrid" 
-                  AutoGenerateColumns="False"                   SelectionChanged="EmployeeDataGrid_SelectionChanged">
+            </Grid.RowDefinitions>
+            <DataGrid Grid.Column="0" x:Name="employeeDataGrid" 
+                  AutoGenerateColumns="False"                   SelectionChanged="EmployeeDataGrid_SelectionChanged" Background="LightBlue" AlternatingRowBackground="LightBlue">
 
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="Fornavn" Binding="{Binding FirstName}"/>
-                <DataGridTextColumn Header="Efternavn" Binding="{Binding LastName}"/>
-                <DataGridTextColumn Header="Job" Binding="{Binding Title}"/>
-                <DataGridTextColumn Header="Title" Binding="{Binding TitleOfCourtesy}"/>
-                <DataGridTextColumn Header="Fødsels dato" Binding="{Binding BirthDate}"/>
-                <DataGridTextColumn Header="Ansættelses dato" Binding="{Binding HireDate}"/>
-                <DataGridTextColumn Header="Adresse" Binding="{Binding Address}"/>
-                <DataGridTextColumn Header="By" Binding="{Binding City}"/>
-                <DataGridTextColumn Header="Postnummer" Binding="{Binding PostalCode}"/>
-                <DataGridTextColumn Header="Region" Binding="{Binding Region}"/>
-                <DataGridTextColumn Header="Land" Binding="{Binding Country}"/>
-                <DataGridTextColumn Header="Hjemme nummer" Binding="{Binding HomePhone}"/>
-                <DataGridTextColumn Header="Extension" Binding="{Binding Extension}"/>
-                <DataGridTextColumn Header="Noter" Binding="{Binding Notes}"/>
-            </DataGrid.Columns>
-        </DataGrid>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Fornavn" Binding="{Binding FirstName}"/>
+                    <DataGridTextColumn Header="Efternavn" Binding="{Binding LastName}"/>
+                    <DataGridTextColumn Header="Job" Binding="{Binding Title}"/>
+                    <DataGridTextColumn Header="Title" Binding="{Binding TitleOfCourtesy}"/>
+                    <DataGridTextColumn Header="Fødsels dato" Binding="{Binding BirthDate}"/>
+                    <DataGridTextColumn Header="Ansættelses dato" Binding="{Binding HireDate}"/>
+                    <DataGridTextColumn Header="Adresse" Binding="{Binding Address}"/>
+                    <DataGridTextColumn Header="By" Binding="{Binding City}"/>
+                    <DataGridTextColumn Header="Postnummer" Binding="{Binding PostalCode}"/>
+                    <DataGridTextColumn Header="Region" Binding="{Binding Region}"/>
+                    <DataGridTextColumn Header="Land" Binding="{Binding Country}"/>
+                    <DataGridTextColumn Header="Hjemme nummer" Binding="{Binding HomePhone}"/>
+                    <DataGridTextColumn Header="Extension" Binding="{Binding Extension}"/>
+                    <DataGridTextColumn Header="Noter" Binding="{Binding Notes}"/>
+                </DataGrid.Columns>
+
+            </DataGrid>
             <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="100"/>
@@ -51,27 +52,27 @@
                     <RowDefinition Height="50"/>
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
-                
+
 
                 <!--#region search fields-->
                 <Label Grid.Column="0" Grid.Row="0" x:Name="labelSearch" Content="Søge kriterier" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
                 <Label Grid.Column="0" Grid.Row="1" x:Name="labelName" Content="Navn" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
                 <Label Grid.Column="0" Grid.Row="2" x:Name="labelInitials" Content="Initials" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
                 <Label Grid.Column="0" Grid.Row="3" x:Name="labelCountrySearch" Content="Country" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+                <Label Grid.Column="0" Grid.Row="4" x:Name="labelRegionSearch" Content="Region" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
 
                 <TextBox Grid.Column="1" Grid.Row="1" x:Name="textBoxName" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" TextChanged="textBoxName_TextChanged"/>
                 <TextBox Grid.Column="1" Grid.Row="2" x:Name="textBoxInitials" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" MaxLength="4" TextChanged="textBoxInitials_TextChanged"/>
                 <ComboBox Grid.Column="1" Grid.Row="3" x:Name="comboBoxCountry" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" Height="23" SelectionChanged="ComboBoxCountry_SelectionChanged">
-                    <ComboBoxItem>UK</ComboBoxItem>
-                    <ComboBoxItem>USA</ComboBoxItem>
+                </ComboBox>
+                <ComboBox Grid.Column="1" Grid.Row="4" x:Name="comboBoxRegion" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" Height="23" SelectionChanged="ComboBoxCountry_SelectionChanged">
+                    <ComboBoxItem>WA</ComboBoxItem>
                 </ComboBox>
                 <!--#endregion-->
-
-                <!--<Button Grid.Column="1" Grid.Row="3" x:Name="buttonSearch" Content="Søg" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" />-->
-
+                
             </Grid>
         </Grid>
-        
+
         <Grid Grid.Column="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="120"/>
@@ -81,61 +82,61 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
-                
+
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
-                
+
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
-                
+
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
-                
+
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="150"/>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="50"/>
-                
-            </Grid.RowDefinitions>
-        
 
-        <Label Grid.Column="0" Grid.Row="0" x:Name="labelFirstName" Content="Fornavn" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
-        <Label Grid.Column="0" Grid.Row="1" x:Name="labelLastName" Content="Efternavn" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
-        <Label Grid.Column="0" Grid.Row="2" x:Name="labelJob" Content="Job" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
-        <Label Grid.Column="0" Grid.Row="3" x:Name="labelTitle" Content="Title" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
-        <Label Grid.Column="0" Grid.Row="4" x:Name="labelBirthday" Content="Fødelse dato" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
-        <Label Grid.Column="0" Grid.Row="5" x:Name="labelHireDate" Content="Ansættelse dato" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
-        <Label Grid.Column="0" Grid.Row="6" x:Name="labelAddress" Content="Adresse" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
-        <Label Grid.Column="0" Grid.Row="7" x:Name="labelCity" Content="By" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
-        <Label Grid.Column="0" Grid.Row="8" x:Name="labelPostalCode" Content="Postnummer" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
-        <Label Grid.Column="0" Grid.Row="9" x:Name="labelRegion" Content="Region" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
-        <Label Grid.Column="0" Grid.Row="10" x:Name="labelCountry" Content="Land" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
-        <Label Grid.Column="0" Grid.Row="11" x:Name="labelHomePhone" Content="Hjemme nummer" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
-        <Label Grid.Column="0" Grid.Row="12" x:Name="labelExtension" Content="Extension" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
-        <Label Grid.Column="0" Grid.Row="13" x:Name="labelNotes" Content="Noter" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
-        <Label Grid.Column="0" Grid.Row="14" x:Name="labelReportTo" Content="Chef" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
-                
-        <TextBox Grid.Column="1" Grid.Row="0" x:Name="textBoxFirstName" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
-        <TextBox Grid.Column="1" Grid.Row="1" x:Name="textBoxLastName" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
-        <TextBox Grid.Column="1" Grid.Row="2" x:Name="textBoxJob" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
-        <TextBox Grid.Column="1" Grid.Row="3" x:Name="textBoxTitle" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
-        <DatePicker Grid.Column="1" Grid.Row="4" x:Name="datePickerBirthday" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="220" />
-        <DatePicker Grid.Column="1" Grid.Row="5" x:Name="datePickerHireDate" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="220" />
-        <TextBox Grid.Column="1" Grid.Row="6" x:Name="textBoxAddress" HorizontalAlignment="Left" Height="40"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
-        <TextBox Grid.Column="1" Grid.Row="7" x:Name="textBoxCity" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
-        <TextBox Grid.Column="1" Grid.Row="8" x:Name="textBoxPostalCode" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
-        <TextBox Grid.Column="1" Grid.Row="9" x:Name="textBoxRegion" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
-        <TextBox Grid.Column="1" Grid.Row="10" x:Name="textBoxCountry" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
-        <TextBox Grid.Column="1" Grid.Row="11" x:Name="textBoxHomePhone" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
-        <TextBox Grid.Column="1" Grid.Row="12" x:Name="textBoxExtension" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" MaxLength="4" />
-        <TextBox Grid.Column="1" Grid.Row="13" x:Name="textBoxNotes" HorizontalAlignment="Left" Height="120"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
-        <TextBox Grid.Column="1" Grid.Row="14" x:Name="textBoxReportTo" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
-                        
-        <Button Grid.Column="1" Grid.Row="15" x:Name="buttonUpdate" Content="Updater" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="ButtonUpdate_Click"/>
+            </Grid.RowDefinitions>
+
+
+            <Label Grid.Column="0" Grid.Row="0" x:Name="labelFirstName" Content="Fornavn" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+            <Label Grid.Column="0" Grid.Row="1" x:Name="labelLastName" Content="Efternavn" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+            <Label Grid.Column="0" Grid.Row="2" x:Name="labelJob" Content="Job" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+            <Label Grid.Column="0" Grid.Row="3" x:Name="labelTitle" Content="Title" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+            <Label Grid.Column="0" Grid.Row="4" x:Name="labelBirthday" Content="Fødelse dato" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+            <Label Grid.Column="0" Grid.Row="5" x:Name="labelHireDate" Content="Ansættelse dato" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+            <Label Grid.Column="0" Grid.Row="6" x:Name="labelAddress" Content="Adresse" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+            <Label Grid.Column="0" Grid.Row="7" x:Name="labelCity" Content="By" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+            <Label Grid.Column="0" Grid.Row="8" x:Name="labelPostalCode" Content="Postnummer" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+            <Label Grid.Column="0" Grid.Row="9" x:Name="labelRegion" Content="Region" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+            <Label Grid.Column="0" Grid.Row="10" x:Name="labelCountry" Content="Land" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+            <Label Grid.Column="0" Grid.Row="11" x:Name="labelHomePhone" Content="Hjemme nummer" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+            <Label Grid.Column="0" Grid.Row="12" x:Name="labelExtension" Content="Extension" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+            <Label Grid.Column="0" Grid.Row="13" x:Name="labelNotes" Content="Noter" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+            <Label Grid.Column="0" Grid.Row="14" x:Name="labelReportTo" Content="Chef" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+
+            <TextBox Grid.Column="1" Grid.Row="0" x:Name="textBoxFirstName" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
+            <TextBox Grid.Column="1" Grid.Row="1" x:Name="textBoxLastName" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
+            <TextBox Grid.Column="1" Grid.Row="2" x:Name="textBoxJob" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
+            <TextBox Grid.Column="1" Grid.Row="3" x:Name="textBoxTitle" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
+            <DatePicker Grid.Column="1" Grid.Row="4" x:Name="datePickerBirthday" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="220" />
+            <DatePicker Grid.Column="1" Grid.Row="5" x:Name="datePickerHireDate" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="220" />
+            <TextBox Grid.Column="1" Grid.Row="6" x:Name="textBoxAddress" HorizontalAlignment="Left" Height="40"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
+            <TextBox Grid.Column="1" Grid.Row="7" x:Name="textBoxCity" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
+            <TextBox Grid.Column="1" Grid.Row="8" x:Name="textBoxPostalCode" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
+            <TextBox Grid.Column="1" Grid.Row="9" x:Name="textBoxRegion" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
+            <TextBox Grid.Column="1" Grid.Row="10" x:Name="textBoxCountry" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
+            <TextBox Grid.Column="1" Grid.Row="11" x:Name="textBoxHomePhone" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
+            <!--the textbox below is using the NumberValidationTextBox method to only allow numbers-->
+            <TextBox Grid.Column="1" Grid.Row="12" x:Name="textBoxExtension" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" MaxLength="4" PreviewTextInput="NumberValidationTextBox"/>
+            <TextBox Grid.Column="1" Grid.Row="13" x:Name="textBoxNotes" HorizontalAlignment="Left" Height="120"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
+            <TextBox Grid.Column="1" Grid.Row="14" x:Name="textBoxReportTo" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" VerticalAlignment="Top" Width="220" />
+
+            <Button Grid.Column="1" Grid.Row="15" x:Name="buttonUpdate" Content="Updater" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="ButtonUpdate_Click"/>
         </Grid>
-        
     </Grid>
 </UserControl>

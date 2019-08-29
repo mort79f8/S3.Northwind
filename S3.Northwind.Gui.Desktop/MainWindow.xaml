@@ -9,23 +9,27 @@
         Height="1024" 
         Width="1280"
         WindowStartupLocation="CenterScreen">
-    <Grid>
+    <Grid Background="LightBlue">
         <DockPanel>
-            <Menu DockPanel.Dock="Top">
-                <MenuItem Header="_Filer"/>
-                <MenuItem Header="_Om"/>
-            </Menu>
-            <StatusBar DockPanel.Dock="Bottom">
-                <TextBlock Text="Klar"/>
-            </StatusBar>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*"/>
-                    <ColumnDefinition Width="4*"/>
-                </Grid.ColumnDefinitions>
-                <UserControl Grid.Column="0" x:Name="masterUserControl"/>
+                <Menu DockPanel.Dock="Top">
+                    <MenuItem Header="_Filer"/>
+                    <MenuItem Header="_Om"/>
+                </Menu>
+                <StatusBar DockPanel.Dock="Bottom">
+                    <TextBlock Text="Klar"/>
+                </StatusBar>
+            
+                <Grid>
+                
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+                    <UserControl Grid.Column="0" x:Name="masterUserControl"/>
                 <UserControl Grid.Column="1" x:Name="detailUserControl"/>
             </Grid>
+            
         </DockPanel>
+        
     </Grid>
 </Window>
