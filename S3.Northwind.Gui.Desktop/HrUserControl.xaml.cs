@@ -29,6 +29,7 @@ namespace S3.Northwind.Gui.Desktop
             Repository repository = new Repository();
             employees = repository.GetAllEmployees();
             FillCountryComboBox();
+            FillRegionComboBox();
         }
 
         public void DisplayAllEmployees()
@@ -47,6 +48,15 @@ namespace S3.Northwind.Gui.Desktop
             }
         }
 
+        private void FillRegionComboBox()
+        {
+            List<string> regions = GetuniqueListOfRegions();
+            foreach (var region in regions)
+            {
+                comboBoxRegion.Items.Add(region);
+            }
+        }
+
         private List<string> GetuniqueListOfCountries()
         {
             List<string> countriesWithDoubles = new List<string>();
@@ -60,13 +70,27 @@ namespace S3.Northwind.Gui.Desktop
             return uniqueCountries;
         }
 
+        private List<string> GetuniqueListOfRegions()
+        {
+            List<string> regionsWithDoubles = new List<string>();
+            foreach (var employee in employees)
+            {
+                regionsWithDoubles.Add(employee.Region);
+            }
+
+            List<string> uniqueRegions = regionsWithDoubles.Distinct().ToList();
+
+            return uniqueRegions;
+        }
+
         // methods for making sure only numbers are typed into any textbox which uses the method.
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
-        
+
+
         private void ButtonUpdate_Click(object sender, RoutedEventArgs e)
         {
 
@@ -137,9 +161,20 @@ namespace S3.Northwind.Gui.Desktop
                 textBoxHomePhone.Text = selectedEmployee.HomePhone;
                 textBoxExtension.Text = selectedEmployee.Extension;
                 textBoxNotes.Text = selectedEmployee.Notes;
-                textBoxReportTo.Text = selectedEmployee.ReportsTo.ToString();
+                textBoxReportTo.Text = ReturnReportsToFullName(selectedEmployee);
             }
-            buttonUpdate.IsEnabled = true;
+        }
+
+        private string ReturnReportsToFullName(Employee employee)
+        {
+            if (employee.ReportsTo == null)
+            {
+                return "Ingen";
+            }
+            else
+            {
+                return employees.Single(e => e.EmployeeID == employee.ReportsTo).FirstName + " " + employees.Single(e => e.EmployeeID == employee.ReportsTo).LastName;
+            }
         }
 
         private void textBoxInitials_TextChanged(object sender, TextChangedEventArgs e)
@@ -154,7 +189,21 @@ namespace S3.Northwind.Gui.Desktop
 
         private void ComboBoxCountry_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            employeeDataGrid.ItemsSource = employees.Where(em => em.Country.Trim() == comboBoxCountry.Text);
+            employeeDataGrid.ItemsSource = employees.Where(em => em.Country == comboBoxCountry.SelectedValue.ToString());
+        }
+
+        private void ComboBoxRegion_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            employeeDataGrid.ItemsSource = employees.Where(em => em.Region == comboBoxRegion.SelectedValue.ToString());
+        }
+
+        private void ButtonResetSearch_Click(object sender, RoutedEventArgs e)
+        {
+            textBoxName.Text = "";
+            textBoxInitials.Text = "";
+            comboBoxCountry.SelectedIndex = 0;
+            comboBoxRegion.SelectedIndex = 0;
+            DisplayAllEmployees();
         }
     }
 }
