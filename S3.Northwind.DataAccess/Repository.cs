@@ -14,6 +14,7 @@ namespace S3.Northwind.DataAccess
 
         public List<Employee> GetAllEmployees()
         {
+            
             List<Employee> allEmployees = model.Employees.ToList();
             return allEmployees;
         }

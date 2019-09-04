@@ -68,6 +68,7 @@
     <Compile Include="StackedButtonNavigationUserControl.xaml.cs">
       <DependentUpon>StackedButtonNavigationUserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\EmployeesViewModel.cs" />
     <Page Include="HrUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
