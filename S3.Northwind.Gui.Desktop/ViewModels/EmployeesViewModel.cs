@@ -14,9 +14,11 @@ namespace S3.Northwind.Gui.Desktop.ViewModels
 
         private List<Employee> employees;
         private Employee selectedEmployee;
+        Repository repository;
 
         public EmployeesViewModel()
         {
+            repository = new Repository();
             GetAllEmployee();
         }
 
@@ -47,12 +49,31 @@ namespace S3.Northwind.Gui.Desktop.ViewModels
             get => AllCountries();
         }
 
+        public List<Employee> AllBosses
+        {
+            get
+            {
+                List<Employee> bosses = new List<Employee>();
+                foreach (var employee in Employees)
+                {
+                    if (employee.Employees1.Count > 0)
+                    {
+                        bosses.Add(employee);
+                    }
+                }
+                return bosses;
+            }
+        }
+
         public void Update(Employee employee)
         {
-            Repository repository = new Repository();
+            
             repository.Update(employee);
             GetAllEmployee();
         }
+
+
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -61,7 +82,7 @@ namespace S3.Northwind.Gui.Desktop.ViewModels
 
         private void GetAllEmployee()
         {
-            Repository repository = new Repository();
+            
             employees = repository.GetAllEmployees();
         }
 
@@ -95,5 +116,13 @@ namespace S3.Northwind.Gui.Desktop.ViewModels
             
             return regions.Distinct().ToList();
         }
+
+        public void AddEmployee(Employee employee)
+        {
+            repository.Insert(employee);
+            Employees = repository.GetAllEmployees();
+        }
+
+
     }
 }

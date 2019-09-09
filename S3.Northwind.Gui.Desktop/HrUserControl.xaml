@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:S3.Northwind.Gui.Desktop"
              mc:Ignorable="d"
-             d:DesignHeight="450"
+             d:DesignHeight="1000"
              d:DesignWidth="800">
     <Grid Background="LightBlue">
         <Grid.ColumnDefinitions>
@@ -26,7 +26,7 @@
                       SelectionChanged="EmployeeDataGrid_SelectionChanged"
                       Background="LightBlue"
                       AlternatingRowBackground="LightBlue"
-                      ItemsSource="{Binding Path=Employees}">
+                      ItemsSource="{Binding Path=Employees, Mode=OneWay}">
                 
                 <!--#region DatagridTextColumn setup for Employees-->
                 <DataGrid.Columns>
@@ -39,9 +39,9 @@
                     <DataGridTextColumn Header="Title"
                                         Binding="{Binding Path=TitleOfCourtesy}" />
                     <DataGridTextColumn Header="Fødsels dato"
-                                        Binding="{Binding Path=BirthDate}" />
+                                        Binding="{Binding Path=BirthDate, StringFormat='dd/MM/yyyy'}" />
                     <DataGridTextColumn Header="Ansættelses dato"
-                                        Binding="{Binding Path=HireDate}" />
+                                        Binding="{Binding Path=HireDate, StringFormat='dd/MM/yyyy'}" />
                     <DataGridTextColumn Header="Adresse"
                                         Binding="{Binding Path=Address}" />
                     <DataGridTextColumn Header="By"
@@ -340,7 +340,8 @@
                         Height="23"
                         VerticalAlignment="Top"
                         Width="220"
-                        Text="{Binding Path=SelectedEmployee.BirthDate}" />
+                        Text="{Binding Path=SelectedEmployee.BirthDate, StringFormat='dd/MM/yyyy'}"
+                        />
             
             <DatePicker Grid.Column="1"
                         Grid.Row="5"
@@ -348,8 +349,8 @@
                         HorizontalAlignment="Left"
                         Height="23"
                         VerticalAlignment="Top"
-                        Width="220" 
-                        Text="{Binding Path=SelectedEmployee.HireDate}"
+                        Width="220"
+                        Text="{Binding Path=SelectedEmployee.HireDate, StringFormat='dd/MM/yyyy'}"
                         />
             
             <TextBox Grid.Column="1"
@@ -442,26 +443,50 @@
                      Text="{Binding Path=SelectedEmployee.Notes}"
                      />
             
-            <TextBox Grid.Column="1" 
-                     Grid.Row="14"
-                     x:Name="textBoxReportTo" 
-                     HorizontalAlignment="Left" 
-                     Height="23"  
-                     TextWrapping="Wrap" 
-                     VerticalAlignment="Top" 
-                     Width="220" 
-                     Text="{Binding Path=SelectedEmployee.Employee1}"
-                     />
+            <ComboBox Grid.Column="1" 
+                      Grid.Row="14"
+                      x:Name="comboBoxAllBosses"
+                      VerticalAlignment="Top"
+                      HorizontalAlignment="Left"
+                      Width="220"
+                      >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding FirstName}"
+                                       Margin="0,0,5,0" />
+                            <TextBlock Text="{Binding LastName}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
 
-            <Button Grid.Column="1"
-                    Grid.Row="15"
+            <Grid Grid.Column="1"
+                  Grid.Row="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+            
+
+            <Button Grid.Column="0"
                     x:Name="buttonUpdate"
                     Content="Updater"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Width="75"
                     Click="ButtonUpdate_Click" />
+
+            <Button Grid.Column="1"
+                    x:Name="buttonAdd"
+                    Content="Tilføj"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Width="75"
+                        Click="ButtonAdd_Click" />
+            </Grid>
             <!--#endregion-->
+            
             
         </Grid>
     </Grid>

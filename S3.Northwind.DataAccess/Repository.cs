@@ -10,7 +10,14 @@ namespace S3.Northwind.DataAccess
 {
     public class Repository
     {
-        NorthwindModel model = new NorthwindModel();
+        NorthwindModel model;
+
+       
+
+        public Repository()
+        {
+            model = new NorthwindModel();
+        }
 
         public List<Employee> GetAllEmployees()
         {
@@ -31,6 +38,11 @@ namespace S3.Northwind.DataAccess
             model.SaveChanges();
         }
 
+        public void Delete(Employee employee)
+        {
+            model.Employees.Remove(employee);
+            model.SaveChanges();
+        }
 
     }
 }
