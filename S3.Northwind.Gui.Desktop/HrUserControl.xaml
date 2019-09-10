@@ -26,7 +26,7 @@
                       SelectionChanged="EmployeeDataGrid_SelectionChanged"
                       Background="LightBlue"
                       AlternatingRowBackground="LightBlue"
-                      ItemsSource="{Binding Path=Employees, Mode=OneWay}">
+                      ItemsSource="{Binding Path=Employees, UpdateSourceTrigger=Explicit}">
                 
                 <!--#region DatagridTextColumn setup for Employees-->
                 <DataGrid.Columns>

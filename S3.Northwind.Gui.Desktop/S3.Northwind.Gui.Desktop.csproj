@@ -128,6 +128,10 @@
       <Project>{4589404B-5D5C-4314-9A63-8573209A97C9}</Project>
       <Name>S3.Northwind.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\S3.Northwind.Services\S3.Northwind.Services.csproj">
+      <Project>{1BED452E-F1F7-452F-8856-60A78EBA32D1}</Project>
+      <Name>S3.Northwind.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

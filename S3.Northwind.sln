@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3.Northwind.Services", "S3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3.Northwind.Entities", "S3.Northwind.Entities\S3.Northwind.Entities.csproj", "{4589404B-5D5C-4314-9A63-8573209A97C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S3.Northwind.ServicesTest", "S3.Northwind.ServicesTest\S3.Northwind.ServicesTest.csproj", "{59F5D924-C5F8-4A5C-B4BC-3CD486C462B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{4589404B-5D5C-4314-9A63-8573209A97C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4589404B-5D5C-4314-9A63-8573209A97C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4589404B-5D5C-4314-9A63-8573209A97C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59F5D924-C5F8-4A5C-B4BC-3CD486C462B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59F5D924-C5F8-4A5C-B4BC-3CD486C462B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59F5D924-C5F8-4A5C-B4BC-3CD486C462B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59F5D924-C5F8-4A5C-B4BC-3CD486C462B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

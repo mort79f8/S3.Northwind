@@ -1,6 +1,7 @@
 ﻿using S3.Northwind.DataAccess;
 using S3.Northwind.Entities;
 using S3.Northwind.Gui.Desktop.ViewModels;
+using S3.Northwind.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
