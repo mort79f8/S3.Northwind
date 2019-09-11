@@ -53,8 +53,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\PhoneNumberAPI.cs" />
-    <Compile Include="PhoneNumberAPIMap.cs" />
+    <Compile Include="Entities\JsonPhoneNumber.cs" />
+    <Compile Include="PhoneNumberService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

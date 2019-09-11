@@ -416,8 +416,7 @@
                      TextWrapping="Wrap"
                      VerticalAlignment="Top"
                      Width="220" 
-                     Text="{Binding Path=SelectedEmployee.HomePhone}"
-                     />
+                     Text="{Binding Path=SelectedEmployee.HomePhone}" />
             <!--the textbox below is using the NumberValidationTextBox method to only allow numbers-->
             <TextBox Grid.Column="1"
                      Grid.Row="12"

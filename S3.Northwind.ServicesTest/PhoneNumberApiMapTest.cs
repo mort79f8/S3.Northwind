@@ -11,12 +11,11 @@ namespace S3.Northwind.ServicesTest
         public void PhoneNumberReturnedFromApiCall_isValid()     
         {
             // Arrange
-            PhoneNumberAPIMap phoneNumberAPIMap = new PhoneNumberAPIMap();
-            PhoneNumberAPI phoneNumberAPI = new PhoneNumberAPI();
+            PhoneNumberService phoneNumberAPIMap = new PhoneNumberService();
             phoneNumberAPIMap.PhoneNumber = "4588888888";
 
             //Act
-            PhoneNumberAPI actualPhoneNumber = phoneNumberAPIMap.PhoneNumberReturnedFromApiCall();
+            JsonPhonenumber actualPhoneNumber = phoneNumberAPIMap.PhoneNumberReturnedFromApiCall();
 
             //Assert
             Assert.IsTrue(actualPhoneNumber.Valid);

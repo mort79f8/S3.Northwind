@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace S3.Northwind.Services
 {
-    public class PhoneNumberAPIMap
+    public class PhoneNumberService
     {
         private const string apiKey = "9e03f07b64003cf61c19019317d4ea59";        
         private string phoneNumber;
@@ -33,10 +33,11 @@ namespace S3.Northwind.Services
             }
         }
 
-        public PhoneNumberAPI PhoneNumberReturnedFromApiCall()
+        public JsonPhonenumber PhoneNumberReturnedFromApiCall()
         {
             Task<string> resultTask = CallAPI();
-            return JsonConvert.DeserializeObject<PhoneNumberAPI>(resultTask.Result);
+            return JsonConvert.DeserializeObject<JsonPhonenumber>(resultTask.Result);
         }
+
     }
 }

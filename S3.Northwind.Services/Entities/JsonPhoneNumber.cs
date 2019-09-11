@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace S3.Northwind.Services
 {
-    public class PhoneNumberAPI
+    public class JsonPhonenumber
     {
         public bool Valid { get; set; }
         public string Number { get; set; }

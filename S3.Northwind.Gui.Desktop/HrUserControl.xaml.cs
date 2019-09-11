@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace S3.Northwind.Gui.Desktop
 {
@@ -42,9 +43,20 @@ namespace S3.Northwind.Gui.Desktop
 
         private void ButtonUpdate_Click(object sender, RoutedEventArgs e)
         {
-            employeesViewModel.SelectedEmployee = new Employee();                      
+            PhoneNumberService phoneNumberService = new PhoneNumberService();
+            phoneNumberService.PhoneNumber = employeesViewModel.SelectedEmployee.HomePhone;
+            if (phoneNumberService.PhoneNumberReturnedFromApiCall().Valid)
+            {
+                employeesViewModel.SelectedEmployee = new Employee();
+                buttonUpdate.IsEnabled = false;
+            }
+            else
+            {
+                MessageBox.Show("ikke valid telefon nummer");
+                //textBoxHomePhone.BorderBrush = Brushes.Red;
+            }
+                                  
             
-            buttonUpdate.IsEnabled = false;
         }
 
         private void EmployeeDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
